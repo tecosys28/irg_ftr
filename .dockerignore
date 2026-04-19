@@ -1,0 +1,15 @@
+.git
+.gitignore
+*.md
+node_modules
+**/node_modules
+frontend
+functions
+.env
+.env.local
+firebase-debug.log
+.firebaserc
+firebase.json
+firestore.rules
+firestore.indexes.json
+storage.rules

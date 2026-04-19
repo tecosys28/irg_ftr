@@ -1,0 +1,25 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAuthed() { return request.auth != null; }
+
+    // KYC document uploads
+    match /kyc/{uid}/{allPaths=**} {
+      allow read:  if isAuthed() && (request.auth.uid == uid ||
+        firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role in ['admin', 'intech_owner']);
+      allow write: if isAuthed() && request.auth.uid == uid &&
+        request.resource.size < 25 * 1024 * 1024;
+    }
+
+    // Project prospectus / docs
+    match /projects/{projectId}/{allPaths=**} {
+      allow read:  if isAuthed();
+      allow write: if false;
+    }
+
+    match /{allPaths=**} {
+      allow read:  if false;
+      allow write: if false;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /c/Users/PRATHMESH/Downloads/irg_ftr status)",
+      "Bash(gh auth *)"
+    ]
+  }
+}

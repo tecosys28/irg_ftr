@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "irg-ftr-prod",
+    "staging": "irg-ftr-staging"
+  },
+  "targets": {},
+  "etags": {}
+}
