@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "irg-ftr-prod",
+    "default": "irgftr",
     "staging": "irg-ftr-staging"
   },
   "targets": {},
